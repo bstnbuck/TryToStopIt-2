@@ -8,7 +8,10 @@ Use of the code samples and proof-of-concepts shown here is permitted solely at 
 - Windows OS (test environment)
 
 ## Usage
-* Download the binaries or clone the repository, build and run ```tryToStopIt.v```.
+* Download the binaries or clone the repository and follow these steps:
+    1. build endless.v with ```v endless.v```
+    2. use tob64.v to get the base64 string of the generated binary (```v run tob64.v```)
+    3. paste the base64 string as one line into the code and compile it (```v tryToStopIt.v```)
 
 ## What it is and how it works
 The malware has a strong DoS behavior. It launches endless loops, which in turn launch endless new threads, which endlessly create new files and execute them.
