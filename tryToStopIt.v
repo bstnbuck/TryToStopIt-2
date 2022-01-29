@@ -22,7 +22,7 @@ fn make_autostart(){
 	target := os.getwd()+"\\tryToStopIt.exe"
 
 	// if symlink not exists, create it
-	if !exists(symlink_dest){
+	if !os.exists(symlink_dest){
 		os.symlink(symlink_dest, target) or{
 			return
 		}
